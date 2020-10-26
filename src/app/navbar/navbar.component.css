@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+nav {
+  height: 3 em;
+  text-align: center;
+  font-family: "Raleway";
+  padding-top:1%;
+  background: #372f7b;
+  color: white;
+}
+nav .center-title{
+  padding-bottom: 0.5%;
+}
