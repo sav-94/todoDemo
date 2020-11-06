@@ -1,0 +1,36 @@
+.mat-list h3{
+  justify-content: center;
+}
+
+.mat-icon-button{
+  justify-content: right;
+}
+
+
+.center-inp {
+  background-color: white;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  margin-bottom: 0.2%;
+}
+
+
+.center-des{
+  background-color: white;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  margin-top: 0.15%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

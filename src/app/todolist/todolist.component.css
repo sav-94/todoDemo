@@ -1,11 +1,19 @@
 /*Google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 body{
 	padding: 0;
 	margin: 0;
 
 }
+
+
+.btn-success{
+  background-color:  #372f7b;
+  border: none;
+  margin-top: 4%;
+}
+
 form{
 	max-width: 30em;
 	margin: 4em auto;
@@ -66,5 +74,66 @@ form .form-control:focus{
 }
 form .text-center{
   text-align: center;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+
+}
+
+.todos{
+  list-style-type: none;
+  padding: 0;
+  width: 40em;
+}
+
+.todos li {
+  cursor: pointer;
+  position: relative;
+  left: 0%;
+  font-family: "Raleway";
+  background-color:white;
+  color: #372f7b;
+  margin: .5em;
+  padding: .3em 0;
+  height: 3.2em;
+  border: none;
+  border-radius: 4px;
+}
+.todos .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 1em 1em 1em 1em;
+  background-color: #372f7b;
+  font-family: "Raleway";
+  line-height: 1.7em;
+  position: relative;
+  left: 0px;
+  top: -0.32em;
+  height: 3.45em;
+  margin-right: .2em;
+  border-radius: 1%;
+
+}
+
+
+.todos .div_todo{
+  background-color:blue;
+  width:80%;
+  height:107%;
+  top:0.5%;
+  left:0.5%;
+  bottom:0.5%;
+  position: relative;
 }
 

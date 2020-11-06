@@ -5,9 +5,19 @@ nav {
   text-align: center;
   font-family: "Raleway";
   padding-top:1%;
-  background: #372f7b;
-  color: white;
+
 }
 nav .center-title{
   padding-bottom: 0.5%;
+}
+
+ul{
+  list-style-type: none;
+}
+li{
+  float: left;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

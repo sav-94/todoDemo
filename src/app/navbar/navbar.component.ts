@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularMaterialModule} from '../angular-material.module';
 
 @Component({
   selector: 'app-navbar',
@@ -11,5 +12,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

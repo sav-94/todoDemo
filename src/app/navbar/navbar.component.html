@@ -1,5 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="center-title">
-  <h1 class="text-center ">Todo App</h1>
-</div>
-</nav>
+<mat-toolbar>
+  <mat-toolbar-row style="background-color:#372f7b; font-family:Raleway;">
+    <span style="color:  white; font-size: 100%; ">TodoApp </span>
+    <span class="example-spacer"></span>
+    <div>
+      <a> </a>
+      <button mat-button routerLink="todolist" style="color:  white;font-size: 85%;font-family:Raleway;">New Todo</button>
+      <button mat-button routerLink="show-inserted" style="color: white;font-size: 85%;font-family:Raleway;"> TodoList</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+ <router-outlet></router-outlet>

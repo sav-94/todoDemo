@@ -1,16 +1,16 @@
-<div class="container">
-	<form #todoForm= "ngForm"(submit)="todoSubmit(todo); todoForm.resetForm()" >
-		<div class="form-group">
-		<h1 class="text-center ">My todo</h1>
-			<div class="input-group-prepend">
-        <input [(ngModel)]="todo" class="form-control" [ngModelOptions]="{standalone: true}" placeholder="Add todo" name="todo.value"/>
-        <span class="input-group-text" (click)="addTodo(todo)"><i>add</i></span>
-			</div>
-		</div>
-		<div class="data">
-		<ul class="list-unstyled">
-			<li *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteTodo(todo)" class="material-icons">delete</i></li>
-		</ul>
-	</div>
-	</form>
-</div>
+
+      <form style="background-color: white;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" (ngSubmit)="onSubmit()" #todolist="ngForm" >
+        <mat-form-field  appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input matInput id="description"  [(ngModel)]="model.description" name="description" >
+        </mat-form-field>
+        <div>
+          <button style="background-color:#372f7b;color: white;font-family: Raleway;" mat-raised-button>Add Todo</button>
+        </div>
+
+      </form>
