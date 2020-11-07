@@ -9,8 +9,17 @@
           <mat-label>Description</mat-label>
           <input matInput id="description"  [(ngModel)]="model.description" name="description" >
         </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Select a day</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="model.date" name="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker (selectedChanged)="onDate($event)" #picker></mat-datepicker>
+        </mat-form-field>
         <div>
           <button style="background-color:#372f7b;color: white;font-family: Raleway;" mat-raised-button>Add Todo</button>
         </div>
 
       </form>
+
+      <!--  (selectedChanged)="onDate($event)"  per attivare funzione onDate quando cambio data che dovrebbe modificare model.date-->

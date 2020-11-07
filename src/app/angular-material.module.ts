@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 const materialModules = [
@@ -27,8 +28,11 @@ const materialModules = [
     MatFormFieldModule,
     MatListModule,
     MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatTabsModule,
     MatInputModule,
+    MatDialogModule,
     MatButtonModule
 
 
@@ -38,9 +42,12 @@ const materialModules = [
     MatIconModule,
     MatFormFieldModule,
     MatDividerModule,
+    MatNativeDateModule,
     MatTabsModule,
     MatButtonModule,
     MatInputModule,
+    MatDialogModule,
+    MatDatepickerModule,
     MatListModule
   ],
 })

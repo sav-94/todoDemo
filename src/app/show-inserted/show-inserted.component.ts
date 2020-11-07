@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoManagementService } from '../todo-management.service';
 import {Todo} from '../todolist/todo';
-
+import {MatDialog} from '@angular/material/dialog';
+import {TodoDialogComponent} from '../todo-dialog/todo-dialog.component';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 
 @Component({
@@ -13,7 +15,17 @@ export class ShowInsertedComponent implements OnInit {
   todoArray = [];
   todoChecked =[];
   public disabled : boolean =false;
-  constructor(private todoService : TodoManagementService) { }
+  constructor(private todoService : TodoManagementService,public dialog: MatDialog) { }
+
+  openDialog(todo: Todo){
+    const dialogRef = this.dialog.open(TodoDialogComponent, {
+      disableClose: true,
+      data: { todo },
+    });
+
+    dialogRef.afterClosed().subscribe(result =>
+    todo = result.data.todo);
+  }
 
 
   ngOnInit(): void {

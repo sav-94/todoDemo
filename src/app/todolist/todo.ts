@@ -5,8 +5,8 @@ export class Todo {
   public id: number,
   public title: string,
   public description: string,
-  public checked: boolean
-
+  public checked: boolean,
+  public date : Date
   ) {}
 
 }

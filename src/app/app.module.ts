@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './angular-material.module';
 import { ShowInsertedComponent } from './show-inserted/show-inserted.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
     NavbarComponent,
-    ShowInsertedComponent
+    ShowInsertedComponent,
+    TodoDialogComponent
   ],
   imports: [
     BrowserModule,
