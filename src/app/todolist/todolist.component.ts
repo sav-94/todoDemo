@@ -32,7 +32,7 @@ export class TodolistComponent implements OnInit {
       console.log(this.model.title +" "+ this.model.date);
       const newDate = new Date();
       this.todoService.addTodo(this.model);
-      console.log(this.todoArray.length);
+      console.log(this.model.date.getMonth());
       this.model = new Todo(this.todoService.todoArray.length+1,'','',false,newDate);
       for(const value of this.todoArray){
         console.log('id:'+ value.id + ' ,title: '+ value.title +" description: "+value.description);
@@ -50,3 +50,11 @@ export class TodolistComponent implements OnInit {
   }
 }
 
+
+ /*dateClass : MatCalendarCellClassFunction<Date> = (cellDate, view) => {
+      if(view === 'month'){
+        const date = cellDate.getDate();
+      return (date ===1 || date ===20) ? 'special-date' : '';
+      }
+      return '';
+    }*/

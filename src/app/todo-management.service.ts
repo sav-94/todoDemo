@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Todo} from './todolist/todo';
 import {Observable,of} from 'rxjs';
-
+import {ShowInsertedComponent} from './show-inserted/show-inserted.component';
+import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,13 @@ export class TodoManagementService {
 
   todoArray = [];
   todoChecked = [];
+  todoDate=[];
   constructor() { }
 
   addTodo(todo: Todo){
     this.todoArray.push(todo);
+    this.addDate(todo);
+
   }
 
   getTodos() {
@@ -60,4 +64,17 @@ export class TodoManagementService {
         this.todoChecked.splice(indice,1);
   }
   }
+
+  addDate(todo: Todo){
+    this.todoDate.push(todo.date);
+  }
+
+  getDates(){
+    return this.todoDate;
+
+  }
+
+
+
+
 }

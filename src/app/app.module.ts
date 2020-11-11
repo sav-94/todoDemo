@@ -13,6 +13,7 @@ import { ShowInsertedComponent } from './show-inserted/show-inserted.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     AngularMaterialModule,
     MatTabsModule,
     BrowserAnimationsModule,
+
 
 
   ],
