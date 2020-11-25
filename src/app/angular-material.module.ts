@@ -11,6 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 const materialModules = [
@@ -33,7 +34,8 @@ const materialModules = [
     MatTabsModule,
     MatInputModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
 
 
   ],
@@ -48,7 +50,8 @@ const materialModules = [
     MatInputModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
   ],
 })
 

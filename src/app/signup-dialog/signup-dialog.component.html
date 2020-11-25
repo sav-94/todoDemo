@@ -1,0 +1,16 @@
+<p>Signup with email and password</p>
+<div>
+  <mat-form-field  appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput  [(ngModel)]="email" placeholder="Insert a valid email" >
+  </mat-form-field>
+</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" [(ngModel)]="password" placeholder="Insert a password">
+  </mat-form-field>
+<div>
+  <div>
+    <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" [disabled]="!email || !password" mat-raised-button>Sign up</button>
+  </div>
+</div>

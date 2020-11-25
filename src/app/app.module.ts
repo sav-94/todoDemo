@@ -13,6 +13,12 @@ import { ShowInsertedComponent } from './show-inserted/show-inserted.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { TodoLoginComponent } from './todo-login/todo-login.component';
+import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
+import { TodoCalendarComponent } from './todo-calendar/todo-calendar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,10 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     TodolistComponent,
     NavbarComponent,
     ShowInsertedComponent,
-    TodoDialogComponent
+    TodoDialogComponent,
+    TodoLoginComponent,
+    SignupDialogComponent,
+    TodoCalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +38,8 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     AngularMaterialModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+
 
 
 

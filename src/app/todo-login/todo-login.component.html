@@ -1,0 +1,22 @@
+  <form style="background-color:#372f7b;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;">
+    <h3 style="color: white; font-family: Raleway;">  Welcome to TodoApp</h3>
+    <h5 style="color: yellow; font-family: Raleway;"> Enter your credential to login or sign up</h5>
+    <mat-form-field  appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput  [(ngModel)]="email" placeholder=" Enter email" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <p></p>
+    <mat-form-field  appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput  type="password"   [(ngModel)]="password" placeholder=" Enter password" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  <p></p>
+    <div>
+      <button class ="buttonlogin" style="color:  #372f7b;font-family: Raleway; font-size: larger;" (click)="login()" [disabled]="!email || !password" mat-raised-button>
+        login
+      </button>
+      <button mat-raised-button style="left: 30%;border-color: #372f7b; color: #372f7b;font-family: Raleway;font-size: larger;" (click)="openDialog()">Signup</button>
+    </div>
+
+  </form>
+

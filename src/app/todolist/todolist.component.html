@@ -1,5 +1,5 @@
 
-      <form style="background-color: white;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" (ngSubmit)="onSubmit()" #todolist="ngForm" >
+      <form  style="background-color: white;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" (ngSubmit)="onSubmit()" #todolist="ngForm" >
         <mat-form-field  appearance="outline">
           <mat-label>Title</mat-label>
           <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel" >
@@ -21,6 +21,9 @@
         </div>
 
       </form>
+
+
+
 
 
       <!--  (selectedChanged)="onDate($event)"  per attivare funzione onDate quando cambio data che dovrebbe modificare model.date-->

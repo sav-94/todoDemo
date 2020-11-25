@@ -1,13 +1,12 @@
 
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Todo">
-    <div class="row">
-      <div class="column">
+
     <mat-list *ngIf="todoArray.length > 0" style="border: solid;border-color:rgba(0,0,0,.12); border-width:0.5px;background-color:white;border-radius: 1.3%;">
       <mat-list-item  style="background-color: white;color: white;"  *ngFor="let value of todoArray">
           <h4 style="font-family: Raleway; color:  #372f7b;" matLine><span style="font-style: italic;"> title : </span> {{ value.title}} </h4>
            <button  style="border:white; background-color: white" mat-icon-button (click)="openDialog(value)" ><mat-icon style="color:#372f7b;">edit</mat-icon></button>
-           <button style="border:white; background-color: white" mat-icon-button (click)="cancelTodo(value)">
+           <button style="border:white; background-color: white" mat-icon-button (click)="cancelTodo(value.key)">
             <mat-icon style="color:#372f7b;background-color:white" matListIcon>delete</mat-icon>
           </button>
           <button style="border:white; background-color: white" mat-icon-button (click)="checkedTodo(value)"><span style="color: green;" class="material-icons">check</span></button>
@@ -16,25 +15,16 @@
         </mat-list-item>
 
       </mat-list>
-    </div>
-      <div class="column">
 
 
-
-          <mat-calendar  [dateClass]="dateClass()" [selected]="selectedDate" (selectedChange)="onSelect($event)" *ngIf="todoArray.length > 0"style="height: 25%!important;width: 90%;margin-left: 2%;"></mat-calendar>
-
-
-
-
-      </div>
-    </div>
   </mat-tab>
+
   <mat-tab label="Completed">
-    <mat-list *ngIf="todoChecked.length > 0" style="border: solid;border-color:rgba(0,0,0,.12); border-width:0.5px;background-color:white;width:60%;border-radius: 1.3%; margin-left:20%;">
+    <mat-list *ngIf="todoChecked.length > 0" style="border: solid;border-color:rgba(0,0,0,.12); border-width:0.5px;background-color:white;border-radius: 1.3%;">
 
       <mat-list-item style="background-color: white;color: white;"  *ngFor="let value of todoChecked">
           <h4 style="font-family: Raleway; color:  #372f7b;" matLine><span style="font-style: italic;"> title : </span> {{value.title}}</h4>
-          <button style="border:white; background-color: white" mat-icon-button (click)="cancelChecked(value)">
+          <button style="border:white; background-color: white" mat-icon-button (click)="cancelChecked(value.key)">
             <mat-icon style="color:#372f7b;background-color:white" matListIcon>delete</mat-icon>
           </button>
           <mat-divider></mat-divider>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularMaterialModule} from '../angular-material.module';
+import { AuthService } from '../service/auth.service';
+import { TodoManagementService } from '../service/todo-management.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,27 @@ import {AngularMaterialModule} from '../angular-material.module';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  userId = null;
+  email = null;
+  username = null;
+  constructor( private authService : AuthService, public todoService: TodoManagementService) {
+    this.authService.afAuth.authState.subscribe(user => {
+      if(user){
+        this.userId =user.uid;
+        this.email = user.email;
+      }else{
+        this.userId= null;
+        this.email = null;
+      }
+    })
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
 
+  doLogout(){
+    this.authService.doLogout();
+  }
 
 }

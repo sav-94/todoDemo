@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {Todo} from '../todolist/todo';
+import {Todo} from '../models/todo';
 import {MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
-import {TodoManagementService} from '../todo-management.service';
+import {TodoManagementService} from '../service/todo-management.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
@@ -11,13 +11,15 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./todo-dialog.component.css']
 })
 export class TodoDialogComponent implements OnInit {
-  todoDialog : Todo ;
-  fromDialog : Todo;
-  constructor(
+  todoDialog ;
+  fromDialog ;
+  constructor( public todoService : TodoManagementService,
     public dialogRef: MatDialogRef<TodoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data : any
   ) {
     this.todoDialog=this.data.todo;
+    this.todoDialog.date = new Date(this.todoDialog.date);
+    console.log('sono nel dialog del calendario ' +this.todoDialog.key);
    }
 
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class TodoDialogComponent implements OnInit {
 
   closeDialog() {
     this.fromDialog=this.todoDialog;
+    this.todoService.updateTodo(this.fromDialog);
     this.dialogRef.close({ event: 'close', data: this.fromDialog });
   }
 

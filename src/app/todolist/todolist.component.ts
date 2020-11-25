@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
-import {Todo} from './todo';
+import {BrowserModule} from '@angular/platform-browser';
+import {Todo} from '../models/todo';
 import {AngularMaterialModule} from '../angular-material.module';
-import {TodoManagementService} from '../todo-management.service';
+import {TodoManagementService} from '../service/todo-management.service';
 import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-input-base';
+import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
+import { MatDialog } from '@angular/material/dialog';
+import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
 
 @Component({
   selector: 'app-todolist',
@@ -11,18 +17,27 @@ import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-i
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
+  user : Observable<firebase.User>;
+  userId : string;
+  title : string;
+  description : string;
 
+  constructor(private todoService: TodoManagementService) {
+    this.userId=this.todoService.userId;
+    console.log('on constructor of todolist userid: '+this.userId);
+   }
 
-  constructor(private todoService: TodoManagementService) { }
+  todoList;
   submitted = false;
   todoArray = [];
   date = null;
-  model = new Todo (1,'','',false, this.date);
+  model = new Todo (1,'','','',false, this.date);
   displayTodo = [];
-
-
+  email: string;
+  password: string;
+  model_with_timestamp;
   ngOnInit(): void {
-
+    this.todoList = this.todoService.getTodoList();
   }
 
   onSubmit() {
@@ -31,9 +46,12 @@ export class TodolistComponent implements OnInit {
       this.submitted = true;
       console.log(this.model.title +" "+ this.model.date);
       const newDate = new Date();
-      this.todoService.addTodo(this.model);
-      console.log(this.model.date.getMonth());
-      this.model = new Todo(this.todoService.todoArray.length+1,'','',false,newDate);
+      this.model.uid=this.userId;
+      console.log(this.model.uid);
+      this.model_with_timestamp=this.model;
+      this.model_with_timestamp.date = this.model_with_timestamp.date.getTime();
+      this.todoService.addTodo(this.model_with_timestamp);
+      this.model = new Todo(this.todoService.todoArray.length+1,'','','',false,newDate);
       for(const value of this.todoArray){
         console.log('id:'+ value.id + ' ,title: '+ value.title +" description: "+value.description);
       }
@@ -41,20 +59,9 @@ export class TodolistComponent implements OnInit {
 
 }
 
-  cancelTodo(todo: Todo){
-    this.todoService.deleteTodo(todo);
-  }
 
   onDate(event) {
     this.model.date=event;
   }
 }
 
-
- /*dateClass : MatCalendarCellClassFunction<Date> = (cellDate, view) => {
-      if(view === 'month'){
-        const date = cellDate.getDate();
-      return (date ===1 || date ===20) ? 'special-date' : '';
-      }
-      return '';
-    }*/
