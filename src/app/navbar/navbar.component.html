@@ -6,7 +6,6 @@
       <a> </a>
       <button mat-button [disabled]="!this.userId" routerLink="todolist" style="color:  white;font-size: 85%;font-family:Raleway;">New Todo</button>
       <button mat-button [disabled]="!this.userId" routerLink="show-inserted" style="color: white;font-size: 85%;font-family:Raleway;"> TodoList</button>
-      <button mat-button [disabled]="!this.userId" routerLink="todo-calendar" style="color: white;font-size: 85%;font-family:Raleway;"> Calendar</button>
       <button mat-button  *ngIf="this.userId" style="color: white;font-size: 85%;font-family:Raleway;"(click)="doLogout()">log out</button>
     </div>
   </mat-toolbar-row>

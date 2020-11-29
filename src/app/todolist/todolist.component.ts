@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import { MatDialog } from '@angular/material/dialog';
-import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
+
+import {etichette} from '../models/etichette';
 
 @Component({
   selector: 'app-todolist',
@@ -18,9 +19,11 @@ import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component'
 })
 export class TodolistComponent implements OnInit {
   user : Observable<firebase.User>;
-  userId : string;
+  userId : string = null;
   title : string;
   description : string;
+  labels : etichette[];
+
 
   constructor(private todoService: TodoManagementService) {
     this.userId=this.todoService.userId;
@@ -36,8 +39,10 @@ export class TodolistComponent implements OnInit {
   email: string;
   password: string;
   model_with_timestamp;
+  selectedValue : string = null;
   ngOnInit(): void {
     this.todoList = this.todoService.getTodoList();
+    this.labels=this.todoService.labels;
   }
 
   onSubmit() {
@@ -50,8 +55,10 @@ export class TodolistComponent implements OnInit {
       console.log(this.model.uid);
       this.model_with_timestamp=this.model;
       this.model_with_timestamp.date = this.model_with_timestamp.date.getTime();
+      this.model_with_timestamp.label = this.selectedValue;
+      console.log(this.model_with_timestamp.label);
       this.todoService.addTodo(this.model_with_timestamp);
-      this.model = new Todo(this.todoService.todoArray.length+1,'','','',false,newDate);
+      this.model = new Todo(this.todoService.todoArray.length+1,'','','',false,null);
       for(const value of this.todoArray){
         console.log('id:'+ value.id + ' ,title: '+ value.title +" description: "+value.description);
       }
@@ -59,8 +66,8 @@ export class TodolistComponent implements OnInit {
 
 }
 
-
   onDate(event) {
+    console.log("i'm in onDate");
     this.model.date=event;
   }
 }

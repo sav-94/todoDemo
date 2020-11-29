@@ -13,13 +13,17 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class TodoDialogComponent implements OnInit {
   todoDialog ;
   fromDialog ;
+  delete : boolean = false;
+  showDelete : boolean = true;
   constructor( public todoService : TodoManagementService,
     public dialogRef: MatDialogRef<TodoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data : any
   ) {
     this.todoDialog=this.data.todo;
     this.todoDialog.date = new Date(this.todoDialog.date);
-    console.log('sono nel dialog del calendario ' +this.todoDialog.key);
+    this.todoDialog.delete = this.data.delete;
+    this.showDelete = this.data.showDelete;
+    console.log('DataDelete is');
    }
 
   ngOnInit(): void {
@@ -29,11 +33,15 @@ export class TodoDialogComponent implements OnInit {
   closeDialog() {
     this.fromDialog=this.todoDialog;
     this.todoService.updateTodo(this.fromDialog);
-    this.dialogRef.close({ event: 'close', data: this.fromDialog });
+    this.dialogRef.close({ event: 'close', data: this.fromDialog, delete:this.delete });
   }
 
   onDate(event){
     this.todoDialog.date=event;
   }
 
+  cancelTodo(){
+    this.delete=true;
+    this.closeDialog();
+  }
 }

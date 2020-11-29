@@ -4,8 +4,7 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject} from '@angular
 import { AuthService } from './auth.service';
 import {formatDate} from '@angular/common';
 import { Observable } from 'rxjs';
-
-
+import {etichette} from '../models/etichette';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +19,16 @@ export class TodoManagementService {
   userId : string;
   todoList : AngularFireList<Todo> = null;
   todoCompleted : AngularFireList<Todo> = null;
+  labels : etichette [] = [
+    {name: "All"},
+    {name: "shopping"},
+    {name: "hobby"},
+    {name: "work"},
+    {name: "free time"},
+    {name: "important"},
+    {name: "food"},
+    {name: "games"},
+  ]
   constructor(private authService : AuthService, private db : AngularFireDatabase) {
     this.authService.afAuth.authState.subscribe(user => {
       if(user) this.userId =user.uid;
@@ -43,6 +52,16 @@ export class TodoManagementService {
       description : todo.description,
       title : todo.title,
       date: todo.date.getTime()
+    })
+
+  }
+
+  checkTodo(todo){
+    console.log(' Sono nel updateTodo' + todo.key);
+    this.todoList.update(todo.key, {
+      description : todo.description,
+      title : todo.title,
+      checked : todo.checked
     })
 
   }

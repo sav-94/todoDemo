@@ -6,9 +6,9 @@ import {TodoDialogComponent} from '../todo-dialog/todo-dialog.component';
 import { MatCalendar, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { formatWithOptions } from 'util';
 import { Router } from '@angular/router';
-
-
-
+import {etichette} from '../models/etichette';
+import { MatList } from '@angular/material/list';
+import { DialogCalendarComponent } from '../dialog-calendar/dialog-calendar.component';
 
 
 @Component({
@@ -24,11 +24,15 @@ export class ShowInsertedComponent implements OnInit {
   todoDate =[];
   elencoDate = [];
   selectedDate : any;
+  checked : boolean = false;
   public disabled : boolean =false;
   userId;
   todoTemp: any;
-
-
+  showDelete : boolean = true;
+  listaEtichette : etichette [];
+  etichetta : string = null;
+  displayArray =[];
+  isEmpty : boolean = false;
   constructor(private todoService : TodoManagementService,public dialog: MatDialog, public router : Router) {
     this.userId=this.todoService.userId;
     this.todoService.getTodoList().subscribe(snapshots => {
@@ -40,30 +44,31 @@ export class ShowInsertedComponent implements OnInit {
               title : snapshot.payload.child('title').val(),
               uid : snapshot.payload.child('uid').val(),
               date : snapshot.payload.child('date').val(),
+              etichetta : snapshot.payload.child('label').val(),
               checked : snapshot.payload.child('checked').val(),
               key : snapshot.key
             }
-          });
+          }).filter (s => s.uid ===this.userId);
           this.todoService.todoArray=this.todoArray;
-      const tempDate = snapshots.map( snapshot =>{
+
+      const tempDate = this.todoArray.map( todo =>{
         return {
-          date : new Date(snapshot.payload.child('date').val()),
+          date : new Date(todo.date),
         }
       })
 
-
-
-
-
      this.todoService.todoDate=tempDate;
+     this.displayArray=this.todoArray;
 
-     this.todoDate.forEach(element =>{
-       console.log(this.todoDate.length +" ... "+ element.date.getDate());
-     })
+     for(const element of this.todoDate){
+       console.log(element.date);
+     }
+
      this.dateClass();
       });
 
-
+ // this.todoChecked non mi serve più perche non ho due pagine ma una in cui gli elementi completati sono checkati
+ //devo solo discriminare il checked dal non checked ma credo che lo si possa fare
 
       this.todoService.getTodolistCompleted().subscribe(snapshots => {
 
@@ -79,18 +84,21 @@ export class ShowInsertedComponent implements OnInit {
                 }
               });
           });
-
-
   }
-
-
 
   openDialog(todo){
     const dialogRef = this.dialog.open(TodoDialogComponent, {
-      data: { todo },
+      width: '30%',
+      data: { todo , delete : false, showDelete: this.showDelete }
+
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result.delete);
+        if (result.delete == true){
+          this.cancelTodo(todo.key);
+        }
     });
 
 
@@ -98,14 +106,40 @@ export class ShowInsertedComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-
+    this.displayArray=this.todoArray;
+    this.listaEtichette=this.todoService.labels;
     this.todoChecked=this.todoService.getChecked();
     this.todoDate=this.todoService.getDates();
 
 
   }
 
+
+  filterByEtichetta(label){
+    if(label === "All"){
+      this.displayArray=this.todoArray;
+      console.log(this.displayArray.length)
+    }else{
+      this.displayArray = this.todoArray.map( todo =>{
+        return {
+          id : todo.id,
+          description : todo.description,
+          title :todo.title,
+          uid : todo.uid,
+          date : todo.date,
+          etichetta : todo.etichetta,
+          checked : todo.checked,
+          key : todo.key,
+        }
+      }).filter (t => t.etichetta === label);
+      if ( this.displayArray.length = 0){
+       this.isEmpty=true;
+      }else{
+        this.isEmpty=false;
+        console.log(this.isEmpty)
+      }
+    }
+  }
 
   cancelTodo(keyofTodo : string){
     this.todoService.deleteTodo(keyofTodo);
@@ -115,13 +149,14 @@ export class ShowInsertedComponent implements OnInit {
     if(indiceDate !== -1){
       this.todoDate.splice(indiceDate,1);
     }
-    this.router.navigate(['/show-inserted']);
-
   }
 
   checkedTodo(todo){
-    todo.checked = true;
-    this.todoService.onCheck(todo);
+    todo.checked = !todo.checked;
+    console.log(todo.checked);
+    this.todoService.checkTodo(todo);
+    // non mi servono più due array
+    //this.todoService.onCheck(todo);
     console.log(this.todoChecked.length);
   }
 
@@ -133,13 +168,13 @@ export class ShowInsertedComponent implements OnInit {
 
 
   dateClass() {
-
      return (date: Date) :  MatCalendarCellCssClasses => {
-      const highlightDate =   this.todoDate
+      const highlightDate =  this.todoDate
       .map(strDate => new Date(strDate.date))
       .some(d => d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear())
-
+      console.log(date);
     return highlightDate ? 'special-date' : '';
+
     };
 
 
@@ -150,7 +185,8 @@ export class ShowInsertedComponent implements OnInit {
   onSelect(event){
     this.selectedDate=event;
     console.log(this.selectedDate);
-    for(const element of this.todoDate){
+    console.log(this.selectedDate);
+    for(const element of this.todoArray){
       if(this.selectedDate.getDate() === element.date.getDate() && this.selectedDate.getMonth() === element.date.getMonth() && this.selectedDate.getFullYear() === element.date.getFullYear())
         {
 
@@ -159,6 +195,13 @@ export class ShowInsertedComponent implements OnInit {
     }
   }
 
+
+  openCalDialog(){
+    const dialogRef = this.dialog.open(DialogCalendarComponent, {
+      width: '40%',
+    });
+
+  }
 
 }
 

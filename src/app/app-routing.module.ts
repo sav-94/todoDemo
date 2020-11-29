@@ -10,7 +10,7 @@ import { TodoCalendarComponent } from './todo-calendar/todo-calendar.component';
 
 
 const routes: Routes = [
-  {path: '', component: TodolistComponent},
+  {path: '', component: ShowInsertedComponent},
   {path: 'todolist', component: TodolistComponent, canActivate: [AuthGuard]},
   {path: 'todo-login', component: TodoLoginComponent},
   {path: 'todo-calendar', component : TodoCalendarComponent, canActivate: [AuthGuard]},

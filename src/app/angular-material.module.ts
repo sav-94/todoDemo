@@ -12,8 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatGridListModule} from '@angular/material/grid-list';
 
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSelectModule} from '@angular/material/select';
 const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
@@ -35,6 +37,9 @@ const materialModules = [
     MatInputModule,
     MatDialogModule,
     MatButtonModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSidenavModule,
     MatCheckboxModule
 
 
@@ -51,6 +56,9 @@ const materialModules = [
     MatDialogModule,
     MatDatepickerModule,
     MatListModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSidenavModule,
     MatCheckboxModule
   ],
 })

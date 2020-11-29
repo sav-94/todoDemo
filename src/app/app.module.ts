@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { TodoLoginComponent } from './todo-login/todo-login.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { TodoCalendarComponent } from './todo-calendar/todo-calendar.component';
+import { DialogCalendarComponent } from './dialog-calendar/dialog-calendar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TodoCalendarComponent } from './todo-calendar/todo-calendar.component';
     TodoLoginComponent,
     SignupDialogComponent,
     TodoCalendarComponent,
+    DialogCalendarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,26 @@
 
       <form  style="background-color: white;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" (ngSubmit)="onSubmit()" #todolist="ngForm" >
-        <mat-form-field  appearance="outline">
+        <mat-form-field class="longDescription" >
           <mat-label>Title</mat-label>
           <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel" >
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field class="FieldDescription">
           <mat-label>Description</mat-label>
-          <input matInput id="description"  [(ngModel)]="model.description" name="description" >
+          <textarea matTextareaAutosize matAutosizeMinRows=2 matAutosizeMaxRows=5 matInput id="description"  [(ngModel)]="model.description" name="description" ></textarea>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill" class="longChip">
+          <mat-label>Select a Label</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name ="label">
+            <mat-option *ngFor="let value of this.labels" [value]="value.name">
+              {{value.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class= "longDescription">
           <mat-label>Select a day</mat-label>
           <input matInput [matDatepicker]="picker" [(ngModel)]="model.date" name="date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

@@ -4,9 +4,9 @@
     <input matInput id="title" [(ngModel)]="todoDialog.title" name="title" #title="ngModel" >
   </mat-form-field>
 </div>
-  <mat-form-field appearance="outline">
+  <mat-form-field class="textLarge" appearance="outline">
     <mat-label>Description</mat-label>
-    <input matInput id="description"  [(ngModel)]="todoDialog.description" name="description" >
+    <textarea  matInput id="description"  [(ngModel)]="todoDialog.description" name="description" ></textarea>
   </mat-form-field>
 <div>
   <mat-form-field appearance="outline">
@@ -16,8 +16,9 @@
     <mat-datepicker (selectedChanged)="onDate($event)" #picker></mat-datepicker>
   </mat-form-field>
 </div>
-
+<p></p>
   <div>
     <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" mat-raised-button>Confirm</button>
+    <button [hidden]="!this.showDelete" style="background-color:#372f7b;color: white;font-family: Raleway;margin-left: 210px;" (click)="cancelTodo()" mat-raised-button>Delete</button>
   </div>
 
