@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import {etichette} from '../models/etichette';
 import { MatList } from '@angular/material/list';
 import { DialogCalendarComponent } from '../dialog-calendar/dialog-calendar.component';
+import { AddTodoDialogComponent } from '../add-todo-dialog/add-todo-dialog.component';
 
 
 @Component({
@@ -29,10 +30,22 @@ export class ShowInsertedComponent implements OnInit {
   userId;
   todoTemp: any;
   showDelete : boolean = true;
-  listaEtichette : etichette [];
+  listaEtichette = [
+    {name : 'All'},
+    {name : 'shopping'},
+    {name : 'hobby'},
+    {name : 'work'},
+    {name : 'free time'},
+    {name : 'important'},
+    {name : 'food'},
+    {name : 'games'}
+
+  ];
   etichetta : string = null;
   displayArray =[];
-  isEmpty : boolean = false;
+  isEmpty : boolean = true;
+  todoTitle : string  =null;
+
   constructor(private todoService : TodoManagementService,public dialog: MatDialog, public router : Router) {
     this.userId=this.todoService.userId;
     this.todoService.getTodoList().subscribe(snapshots => {
@@ -44,6 +57,7 @@ export class ShowInsertedComponent implements OnInit {
               title : snapshot.payload.child('title').val(),
               uid : snapshot.payload.child('uid').val(),
               date : snapshot.payload.child('date').val(),
+              color : snapshot.payload.child('color').val(),
               etichetta : snapshot.payload.child('label').val(),
               checked : snapshot.payload.child('checked').val(),
               key : snapshot.key
@@ -59,7 +73,8 @@ export class ShowInsertedComponent implements OnInit {
 
      this.todoService.todoDate=tempDate;
      this.displayArray=this.todoArray;
-
+     console.log(this.displayArray.length);
+     console.log(this.todoArray.length);
      for(const element of this.todoDate){
        console.log(element.date);
      }
@@ -100,6 +115,13 @@ export class ShowInsertedComponent implements OnInit {
           this.cancelTodo(todo.key);
         }
     });
+  }
+
+
+  openAddDialog(){
+    const dialogRef = this.dialog.open(AddTodoDialogComponent, {
+      width: '30%'
+    });
 
 
   }
@@ -107,37 +129,26 @@ export class ShowInsertedComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayArray=this.todoArray;
-    this.listaEtichette=this.todoService.labels;
     this.todoChecked=this.todoService.getChecked();
     this.todoDate=this.todoService.getDates();
-
-
   }
 
 
   filterByEtichetta(label){
     if(label === "All"){
       this.displayArray=this.todoArray;
-      console.log(this.displayArray.length)
+      console.log(this.displayArray.length);
     }else{
-      this.displayArray = this.todoArray.map( todo =>{
-        return {
-          id : todo.id,
-          description : todo.description,
-          title :todo.title,
-          uid : todo.uid,
-          date : todo.date,
-          etichetta : todo.etichetta,
-          checked : todo.checked,
-          key : todo.key,
-        }
-      }).filter (t => t.etichetta === label);
-      if ( this.displayArray.length = 0){
-       this.isEmpty=true;
-      }else{
-        this.isEmpty=false;
-        console.log(this.isEmpty)
-      }
+      this.displayArray = this.todoArray.filter(todo => todo.etichetta.indexOf(label) > -1);
+    }
+  }
+
+  filterByTitle(title){
+    if(title === ""){
+      this.displayArray=this.todoArray;
+      console.log(this.displayArray.length);
+    }else{
+      this.displayArray = this.todoArray.filter(todo => todo.title.indexOf(title) > -1);
     }
   }
 

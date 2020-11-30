@@ -20,14 +20,13 @@ export class TodoManagementService {
   todoList : AngularFireList<Todo> = null;
   todoCompleted : AngularFireList<Todo> = null;
   labels : etichette [] = [
-    {name: "All"},
-    {name: "shopping"},
-    {name: "hobby"},
-    {name: "work"},
-    {name: "free time"},
-    {name: "important"},
-    {name: "food"},
-    {name: "games"},
+    {name: "shopping", color :'red'},
+    {name: "hobby", color:'orange'},
+    {name: "work", color:'yellow'},
+    {name: "free time", color:'green'},
+    {name: "important", color:'lightblue'},
+    {name: "food", color:'blue'},
+    {name: "games", color:'violet'},
   ]
   constructor(private authService : AuthService, private db : AngularFireDatabase) {
     this.authService.afAuth.authState.subscribe(user => {

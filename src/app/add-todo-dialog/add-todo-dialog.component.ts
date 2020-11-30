@@ -1,35 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
-import {BrowserModule} from '@angular/platform-browser';
-import {Todo} from '../models/todo';
-import {AngularMaterialModule} from '../angular-material.module';
-import {TodoManagementService} from '../service/todo-management.service';
-import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-input-base';
 import { Observable } from 'rxjs';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { etichette } from '../models/etichette';
+import { Todo } from '../models/todo';
+import { TodoManagementService } from '../service/todo-management.service';
 import firebase from 'firebase/app';
-import { MatDialog } from '@angular/material/dialog';
-
-import {etichette} from '../models/etichette';
-
 @Component({
-  selector: 'app-todolist',
-  templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.css']
+  selector: 'app-add-todo-dialog',
+  templateUrl: './add-todo-dialog.component.html',
+  styleUrls: ['./add-todo-dialog.component.css']
 })
-export class TodolistComponent implements OnInit {
+export class AddTodoDialogComponent implements OnInit {
+
   user : Observable<firebase.User>;
   userId : string = null;
   title : string;
   description : string;
   labels : etichette[];
-
-
-  constructor(private todoService: TodoManagementService) {
-    this.userId=this.todoService.userId;
-    console.log('on constructor of todolist userid: '+this.userId);
-   }
-
+  color = null;
   todoList;
   submitted = false;
   todoArray = [];
@@ -39,10 +26,21 @@ export class TodolistComponent implements OnInit {
   email: string;
   password: string;
   model_with_timestamp;
-  selectedValue : string = null;
-  ngOnInit(): void {
+  selectedValue : string = null ;
+
+  constructor(private todoService: TodoManagementService) {
+    this.userId=this.todoService.userId;
+    console.log('on constructor of todolist userid: '+this.userId);
+   }
+
+   ngOnInit(): void {
     this.todoList = this.todoService.getTodoList();
     this.labels=this.todoService.labels;
+  }
+
+  onDate(event) {
+    console.log("i'm in onDate");
+    this.model.date=event;
   }
 
   onSubmit() {
@@ -56,8 +54,18 @@ export class TodolistComponent implements OnInit {
       this.model_with_timestamp=this.model;
       this.model_with_timestamp.date = this.model_with_timestamp.date.getTime();
       this.model_with_timestamp.label = this.selectedValue;
+
+      for(const element of this.labels){
+        if(element.name === this.selectedValue){
+          this.color = element.color;
+        }
+      }
+
+      this.model_with_timestamp.color = this.color;
+      console.log(this.color);
       console.log(this.model_with_timestamp.label);
       this.todoService.addTodo(this.model_with_timestamp);
+      this.selectedValue= null;
       this.model = new Todo(this.todoService.todoArray.length+1,'','','',false,null);
       for(const value of this.todoArray){
         console.log('id:'+ value.id + ' ,title: '+ value.title +" description: "+value.description);
@@ -66,9 +74,4 @@ export class TodolistComponent implements OnInit {
 
 }
 
-  onDate(event) {
-    console.log("i'm in onDate");
-    this.model.date=event;
-  }
 }
-

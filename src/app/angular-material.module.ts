@@ -13,7 +13,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
 const materialModules = [
@@ -40,6 +40,7 @@ const materialModules = [
     MatGridListModule,
     MatSelectModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     MatCheckboxModule
 
 
@@ -59,6 +60,7 @@ const materialModules = [
     MatGridListModule,
     MatSelectModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     MatCheckboxModule
   ],
 })

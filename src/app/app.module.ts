@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 
-import { TodolistComponent } from './todolist/todolist.component';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './angular-material.module';
@@ -18,20 +18,19 @@ import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore'
 import { environment } from '../environments/environment';
 import { TodoLoginComponent } from './todo-login/todo-login.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
-import { TodoCalendarComponent } from './todo-calendar/todo-calendar.component';
 import { DialogCalendarComponent } from './dialog-calendar/dialog-calendar.component';
+import { AddTodoDialogComponent } from './add-todo-dialog/add-todo-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent,
     NavbarComponent,
     ShowInsertedComponent,
     TodoDialogComponent,
     TodoLoginComponent,
     SignupDialogComponent,
-    TodoCalendarComponent,
     DialogCalendarComponent,
+    AddTodoDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,33 +1,38 @@
-<mat-toolbar>
+<mat-spinner style="margin:0 auto;margin-top: 50%" *ngIf="todoArray.length == 0"></mat-spinner>
+<mat-toolbar *ngIf="todoArray.length > 0">
   <mat-toolbar-row>
       <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
        <mat-icon style="color: #372f7b;">menu</mat-icon>
      </button>
     <button style="color: orange; margin-left: 20px; " mat-raised-button (click)="openCalDialog()">Calendar</button>
+     <button style="color: orange; margin-left: 20px; " mat-raised-button (click)="openAddDialog()" >Add todo</button>
+
+      <mat-form-field style="font-size: 12px;font-family: Raleway;margin-top: 15px; width: 15%;margin-left:20px; color:orange" appearance="outline">
+        <mat-label >Search todo by title</mat-label>
+        <input  matInput [(ngModel)]="todoTitle">
+      </mat-form-field>
+      <button style="color: orange; margin-left: 20px; " mat-raised-button (click)="filterByTitle(todoTitle)" >Search</button>
+
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container style="height: 100vh;">
+<mat-sidenav-container  style="height: 100vh;">
   <mat-sidenav #drawer mode="side" class="example-sidenav">
     <mat-selection-list #etichette [multiple]="false">
       <mat-list-option style="color: orange;" *ngFor="let value of this.listaEtichette" [value]="value.name" (click)="filterByEtichetta(value.name)">
         {{value.name}}
       </mat-list-option>
     </mat-selection-list>
-
-
-
-
   </mat-sidenav>
-  <mat-sidenav-content [hidden]="isEmpty">
+  <mat-sidenav-content > <!-- [hidden]="!isEmpty"-->
 
     <mat-list  *ngIf="todoArray.length > 0" style="border: none;background-color:white;border-radius: 1.3%;">
-      <mat-list-item class="card"  style="background-color: white;color: white;"  *ngFor="let value of displayArray">
+      <mat-list-item [style.background]="value.color" class="card" *ngFor="let value of displayArray">
 
         <mat-checkbox (change)="checkedTodo(value)" [(ngModel)]="this.value.checked"></mat-checkbox>
         <h4 style="text-align:center;" (click)="openDialog(value)" style="font-family: Raleway; color:  #372f7b;" matLine><span style="font-style: italic;"></span> {{ value.title}} </h4>
 
-          <mat-divider ></mat-divider>
+
         </mat-list-item>
       </mat-list>
 
