@@ -131,6 +131,58 @@ export class ShowInsertedComponent implements OnInit {
     this.displayArray=this.todoArray;
     this.todoChecked=this.todoService.getChecked();
     this.todoDate=this.todoService.getDates();
+    this.todoService.getTodoList().subscribe(snapshots => {
+
+      this.todoArray = snapshots.map( snapshot =>{
+              return {
+                id : snapshot.payload.child('id').val(),
+                description : snapshot.payload.child('description').val(),
+                title : snapshot.payload.child('title').val(),
+                uid : snapshot.payload.child('uid').val(),
+                date : snapshot.payload.child('date').val(),
+                color : snapshot.payload.child('color').val(),
+                etichetta : snapshot.payload.child('label').val(),
+                checked : snapshot.payload.child('checked').val(),
+                key : snapshot.key
+              }
+            }).filter (s => s.uid ===this.userId);
+            this.todoService.todoArray=this.todoArray;
+
+        const tempDate = this.todoArray.map( todo =>{
+          return {
+            date : new Date(todo.date),
+          }
+        })
+
+       this.todoService.todoDate=tempDate;
+       this.displayArray=this.todoArray;
+       console.log(this.displayArray.length);
+       console.log(this.todoArray.length);
+       for(const element of this.todoDate){
+         console.log(element.date);
+       }
+
+       this.dateClass();
+        });
+
+   // this.todoChecked non mi serve più perche non ho due pagine ma una in cui gli elementi completati sono checkati
+   //devo solo discriminare il checked dal non checked ma credo che lo si possa fare
+
+        this.todoService.getTodolistCompleted().subscribe(snapshots => {
+
+          this.todoChecked = snapshots.map( snapshot =>{
+                  return {
+                    id : snapshot.payload.child('id').val(),
+                    description : snapshot.payload.child('description').val(),
+                    title : snapshot.payload.child('title').val(),
+                    uid : snapshot.payload.child('uid').val(),
+                    date : snapshot.payload.child('date').val(),
+                    checked : snapshot.payload.child('checked').val(),
+                    key : snapshot.key
+                  }
+                });
+            });
+
   }
 
 

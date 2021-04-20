@@ -11,6 +11,7 @@
   </mat-form-field>
 <div>
   <div>
-    <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" [disabled]="!email || !password" mat-raised-button>Sign up</button>
+    <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" [disabled]="!email || !password" mat-raised-button mat-dialog-close>Sign up</button>
+    <button id="closeSignup" style="background-color:#32751f;color: white;font-family: Raleway;margin-left: 210px;"  mat-raised-button mat-dialog-close>Close </button>
   </div>
 </div>

@@ -48,7 +48,8 @@ export class AuthService{
        .then(value => {
          console.log('Nice, it worked!');
          this.SetUserData(value.user);
-         this.router.navigate(['/']);
+
+         this.router.navigate(['/show-inserted']);
         })
        .catch(err => {
          console.log('Something went wrong:',err.message);

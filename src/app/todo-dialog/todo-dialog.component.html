@@ -18,8 +18,7 @@
   </mat-form-field>
 </div>
 <p></p>
-  <div>
-    <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" mat-raised-button>Confirm</button>
-    <button [hidden]="!this.showDelete" style="background-color:#372f7b;color: white;font-family: Raleway;margin-left: 210px;" (click)="cancelTodo()" mat-raised-button>Delete</button>
-  </div>
+    <button id="confirm-button" style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" mat-raised-button>Confirm</button>
+    <button id="delete-button" [hidden]="!this.showDelete" style="background-color:#372f7b;color: white;font-family: Raleway;margin-left: 210px;" (click)="cancelTodo()" mat-raised-button>Delete</button>
+
 
