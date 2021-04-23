@@ -12,7 +12,7 @@ class Signup(unittest.TestCase):
         chrome_options.add_argument('headless')
         chrome_options.add_argument('disable-gpu')
         self.driver = webdriver.Chrome(
-            executable_path='C:\\Users\\savys\\Desktop\\tests\\2.2\\chromedriver.exe',
+            executable_path='.\\chromedriver.exe',
             chrome_options=chrome_options)
         self.driver.implicitly_wait(30)
         self.driver.set_window_position(0, 0)
@@ -26,7 +26,7 @@ class Signup(unittest.TestCase):
         driver.get("http://localhost:4200/todo-login")
         driver.find_element_by_xpath("//button[2]/span").click()
         driver.find_element_by_id("mat-input-2").clear()
-        driver.find_element_by_id("mat-input-2").send_keys("provadisignup@gmail.com")
+        driver.find_element_by_id("mat-input-2").send_keys("accountprovadisignup@gmail.com")
         driver.find_element_by_xpath(
             "//mat-dialog-container[@id='mat-dialog-0']/app-signup-dialog/mat-form-field/div/div/div[3]").click()
         driver.find_element_by_id("mat-input-3").clear()
