@@ -12,7 +12,7 @@ class AbortSignup(unittest.TestCase):
         chrome_options.add_argument('headless')
         chrome_options.add_argument('disable-gpu')
         self.driver = webdriver.Chrome(
-            executable_path='C:\\Users\\savys\\Desktop\\tests\\2.2\\chromedriver.exe',
+            executable_path='.\\chromedriver.exe',
             chrome_options=chrome_options)
         self.driver.implicitly_wait(30)
         self.driver.set_window_position(0, 0)
