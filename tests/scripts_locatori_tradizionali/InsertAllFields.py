@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class Login(unittest.TestCase):
+class InsertAllFields(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,15 +20,20 @@ class Login(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_login(self):
+    def test_insert_all_fields(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
         driver.find_element_by_id("mat-input-0").click()
         driver.find_element_by_id("mat-input-0").clear()
         driver.find_element_by_id("mat-input-0").send_keys("accountdiaccesso@gmail.com")
-        driver.find_element_by_id("mat-input-1").click()
         driver.find_element_by_id("mat-input-1").clear()
         driver.find_element_by_id("mat-input-1").send_keys("Accesso.1234")
+        driver.find_element_by_xpath("//form/div/button/span").click()
+        driver.find_element_by_id("title").clear()
+        driver.find_element_by_id("title").send_keys("Dentista")
+        driver.find_element_by_id("description").click()
+        driver.find_element_by_id("description").clear()
+        driver.find_element_by_id("description").send_keys(u"Venerdì ore 18")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[4]/span").click()
     

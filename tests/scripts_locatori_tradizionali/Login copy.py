@@ -30,7 +30,7 @@ class Login(unittest.TestCase):
         driver.find_element_by_id("mat-input-1").clear()
         driver.find_element_by_id("mat-input-1").send_keys("Accesso.1234")
         driver.find_element_by_xpath("//form/div/button/span").click()
-        driver.find_element_by_xpath("//button[4]/span").click()
+        driver.find_element_by_xpath("//button[3]/span").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

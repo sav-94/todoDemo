@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class Login(unittest.TestCase):
+class InsertDate(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,7 +20,7 @@ class Login(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_login(self):
+    def test_insert_date(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
         driver.find_element_by_id("mat-input-0").click()
@@ -30,6 +30,10 @@ class Login(unittest.TestCase):
         driver.find_element_by_id("mat-input-1").clear()
         driver.find_element_by_id("mat-input-1").send_keys("Accesso.1234")
         driver.find_element_by_xpath("//form/div/button/span").click()
+        driver.find_element_by_id("mat-input-4").click()
+        driver.find_element_by_id("mat-input-4").clear()
+        driver.find_element_by_id("mat-input-4").send_keys("4/23/2021")
+        driver.find_element_by_xpath("//form/div/button").click()
         driver.find_element_by_xpath("//button[4]/span").click()
     
     def is_element_present(self, how, what):
