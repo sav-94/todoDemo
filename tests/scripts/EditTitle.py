@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class AbortEdit(unittest.TestCase):
+class EditTitle(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,18 +20,17 @@ class AbortEdit(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_abort_edit(self):
+    def test_edit_title(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").send_keys("Dentista")
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").send_keys("4/5/2021")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").send_keys("prova edit")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20925]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20939]//*[@x-test-hook-20942]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20939]//*[@x-test-hook-20942]").send_keys("prova edit effettuato")
         driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20927]").click()
     

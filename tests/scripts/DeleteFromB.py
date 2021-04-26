@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class AbortEdit(unittest.TestCase):
+class DeleteFromB(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,20 +20,20 @@ class AbortEdit(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_abort_edit(self):
+    def test_delete_from_b(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").send_keys("Dentista")
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").send_keys("4/5/2021")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").send_keys("Dentista")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20955]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20955]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20955]").send_keys(u"Venerdì ore 18")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20925]").click()
-        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20927]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20935]").click()
+        driver.find_element_by_xpath("//div[@id='mat-tab-label-0-1']/div").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20947]").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
