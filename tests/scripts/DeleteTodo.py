@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class InsertTitle(unittest.TestCase):
+class DeleteTodo(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,13 +20,15 @@ class InsertTitle(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_insert_title(self):
+    def test_delete_todo(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
-        driver.find_element_by_xpath("//div[3]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").send_keys("prova")
-        driver.find_element_by_xpath("//form/div/button/span").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").send_keys("provaeliminazione")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20939]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20939]").send_keys("prova")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20941]").click()
         driver.find_element_by_xpath("//button[2]/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20931]").click()
     
