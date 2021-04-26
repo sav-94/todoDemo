@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class AbortEdit(unittest.TestCase):
+class EditAllFields(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,15 +20,31 @@ class AbortEdit(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_abort_edit(self):
+    def test_edit_all_fields(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_id("title").click()
         driver.find_element_by_id("title").clear()
         driver.find_element_by_id("title").send_keys("Dentista")
+        driver.find_element_by_xpath("//mat-form-field[2]/div/div/div[3]").click()
+        driver.find_element_by_id("description").clear()
+        driver.find_element_by_id("description").send_keys(u"Venerdì ore 18")
+        driver.find_element_by_id("mat-input-2").click()
+        driver.find_element_by_id("mat-input-2").clear()
+        driver.find_element_by_id("mat-input-2").send_keys("04/05/2021")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
         driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div/mat-list/mat-list-item/div/button/span/mat-icon").click()
+        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div/mat-form-field/div/div").click()
+        driver.find_element_by_id("title").clear()
+        driver.find_element_by_id("title").send_keys("Palestra")
+        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/mat-form-field/div/div").click()
+        driver.find_element_by_id("description").clear()
+        driver.find_element_by_id("description").send_keys(u"Martedì ore 18")
+        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[2]/mat-form-field/div/div/div[3]").click()
+        driver.find_element_by_id("mat-input-5").click()
+        driver.find_element_by_id("mat-input-5").clear()
+        driver.find_element_by_id("mat-input-5").send_keys("6/5/2021")
         driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
         driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div/mat-list/mat-list-item/div/button[2]/span/mat-icon").click()
     

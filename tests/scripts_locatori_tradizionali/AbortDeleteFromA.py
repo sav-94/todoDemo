@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class AbortEdit(unittest.TestCase):
+class AbortDeleteFromA(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,17 +20,18 @@ class AbortEdit(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_abort_edit(self):
+    def test_abort_delete_from_a(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_id("title").click()
         driver.find_element_by_id("title").clear()
         driver.find_element_by_id("title").send_keys("Dentista")
-        driver.find_element_by_xpath("//form/div/button/span").click()
+        driver.find_element_by_xpath("//form/div/button").click()
         driver.find_element_by_xpath("//button[2]/span").click()
-        driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div/mat-list/mat-list-item/div/button/span/mat-icon").click()
-        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
-        driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div/mat-list/mat-list-item/div/button[2]/span/mat-icon").click()
+        driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div/mat-list/mat-list-item/div/button[3]/span/span").click()
+        driver.find_element_by_xpath("//div[@id='mat-tab-label-0-1']/div").click()
+        driver.find_element_by_xpath("//body").click()
+        driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-1']/div/mat-list/mat-list-item/div/button/span/mat-icon").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
