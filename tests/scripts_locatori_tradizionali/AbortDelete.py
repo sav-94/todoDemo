@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class InsertTitle(unittest.TestCase):
+class AbortDelete(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
@@ -15,15 +15,18 @@ class InsertTitle(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_insert_title(self):
+    def test_abort_delete(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
-        driver.find_element_by_xpath("//div[3]").click()
+        driver.find_element_by_id("title").click()
         driver.find_element_by_id("title").clear()
-        driver.find_element_by_id("title").send_keys("prova")
+        driver.find_element_by_id("title").send_keys("provaelminazioneannullata")
+        driver.find_element_by_xpath("//mat-form-field[2]/div/div/div[3]").click()
+        driver.find_element_by_id("description").clear()
+        driver.find_element_by_id("description").send_keys("prova")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
-        driver.find_element_by_xpath("//mat-icon").click()
+        driver.find_element_by_xpath("//body").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
