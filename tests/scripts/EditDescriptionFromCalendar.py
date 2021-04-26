@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class InsertTitle(unittest.TestCase):
+class EditDescriptionFromCalendar(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,14 +20,25 @@ class InsertTitle(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_insert_title(self):
+    def test_edit_description_from_calendar(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20967]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20967]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20967]").send_keys("Dentista")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20970]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20970]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20970]").send_keys(u"Venerdì ore 18")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20973]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20973]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20973]").send_keys("04/05/2021")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
+        driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div[2]/mat-calendar/div/mat-month-view/table/tbody/tr[2]/td[2]/div").click()
+        driver.find_element_by_id("mat-dialog-0").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20987]//*[@x-test-tpl-20953]//*[@x-test-hook-20955]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20987]//*[@x-test-tpl-20953]//*[@x-test-hook-20955]").send_keys(u"Martedì ore 18")
+        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20924]//*[@x-test-hook-20935]").click()
     
     def is_element_present(self, how, what):
