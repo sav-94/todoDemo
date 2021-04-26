@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class Login(unittest.TestCase):
+class UnvalidLogin(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,17 +20,15 @@ class Login(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_login(self):
+    def test_unvalid_login(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
         driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21034]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21034]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21034]").send_keys("accountdiaccesso@gmail.com")
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").send_keys("Accesso.1234")
+        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").send_keys("Accesso.123")
         driver.find_element_by_xpath("//form/div/button/span").click()
-        driver.find_element_by_xpath("//button[3]/span").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
