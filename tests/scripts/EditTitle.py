@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class Login(unittest.TestCase):
+class EditTitle(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,17 +20,20 @@ class Login(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_login(self):
+    def test_edit_title(self):
         driver = self.driver
-        driver.get("http://localhost:4200/todo-login")
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21034]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21034]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21034]").send_keys("accountdiaccesso@gmail.com")
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21067]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21029]//*[@x-test-hook-21038]").send_keys("Accesso.1234")
-        driver.find_element_by_xpath("//form/div/button/span").click()
-        driver.find_element_by_xpath("//button[4]/span").click()
+        driver.get("http://localhost:4200/todolist")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20967]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20967]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20967]").send_keys("Dentista")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20964]//*[@x-test-hook-20977]").click()
+        driver.find_element_by_xpath("//button[2]/span").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20924]//*[@x-test-hook-20933]").click()
+        driver.find_element_by_id("mat-dialog-0").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20987]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20987]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").send_keys("Palestra")
+        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20978]//*[@x-test-hook-20988]//*[@x-test-tpl-20914]//*[@x-test-tpl-20924]//*[@x-test-hook-20935]").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
