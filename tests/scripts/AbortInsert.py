@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class AbortDelete(unittest.TestCase):
+class AbortInsert(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,18 +20,17 @@ class AbortDelete(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_abort_delete(self):
+    def test_abort_insert(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").send_keys("provaelminazioneannullata")
-        driver.find_element_by_xpath("//mat-form-field[2]/div/div/div[3]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").send_keys("Dentista")
+        driver.find_element_by_xpath("//div[3]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").send_keys("prova")
-        driver.find_element_by_xpath("//form/div/button/span").click()
-        driver.find_element_by_xpath("//button[2]/span").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20947]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").send_keys("Venerdi ore 18")
+        driver.find_element_by_xpath("//app-todolist").click()
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
