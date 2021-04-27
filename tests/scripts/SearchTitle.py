@@ -19,7 +19,7 @@ class SearchTitle(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_search_title(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
@@ -44,20 +44,21 @@ class SearchTitle(unittest.TestCase):
         driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-20996]//*[@x-test-hook-21004]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-20996]//*[@x-test-hook-21004]").send_keys("prova")
         driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-20996]//*[@x-test-hook-21005]").click()
+        time.sleep(1)
         driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21006]//*[@x-test-hook-21014]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21067]//*[@x-test-tpl-21043]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20987]//*[@x-test-hook-20993]").click()
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -68,7 +69,7 @@ class SearchTitle(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)

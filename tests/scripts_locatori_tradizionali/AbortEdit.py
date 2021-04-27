@@ -19,7 +19,7 @@ class AbortEdit(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_abort_edit(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
@@ -34,24 +34,24 @@ class AbortEdit(unittest.TestCase):
         driver.find_element_by_id("title").click()
         driver.find_element_by_id("title").clear()
         driver.find_element_by_id("title").send_keys("Dentista")
-        
+
         driver.find_element_by_name("date").send_keys("04/05/2021")
         driver.find_element_by_id("Add_todo_button").click()
-        
+        time.sleep(1)
         driver.find_element_by_xpath("//mat-list-item[@id='value.title']/div/div[2]/h4").click()
         driver.find_element_by_id("delete-button").click()
         driver.find_element_by_id("log-out-button").click()
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -62,7 +62,7 @@ class AbortEdit(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)

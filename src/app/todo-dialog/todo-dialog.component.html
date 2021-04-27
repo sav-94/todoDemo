@@ -1,24 +1,24 @@
 
-  <div>
-  <mat-form-field  appearance="outline">
-    <mat-label>Title</mat-label>
-    <input matInput id="title" [(ngModel)]="todoDialog.title" name="title" #title="ngModel" >
+  <div x-test-tpl-21028>
+  <mat-form-field  appearance="outline" x-test-hook-21029>
+    <mat-label x-test-hook-21030>Title</mat-label>
+    <input matInput id="title" [(ngModel)]="todoDialog.title" name="title" #title="ngModel"  x-test-hook-21031>
   </mat-form-field>
 </div>
-  <mat-form-field class="textLarge" appearance="outline">
-    <mat-label>Description</mat-label>
-    <textarea  matInput id="description"  [(ngModel)]="todoDialog.description" name="description" ></textarea>
+  <mat-form-field class="textLarge" appearance="outline" x-test-tpl-21032>
+    <mat-label x-test-hook-21033>Description</mat-label>
+    <textarea  matInput id="description"  [(ngModel)]="todoDialog.description" name="description"  x-test-hook-21034></textarea>
   </mat-form-field>
-<div>
-  <mat-form-field appearance="outline">
-    <mat-label>Edit or insert a date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="todoDialog.date" name="date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker (selectedChanged)="onDate($event)" #picker></mat-datepicker>
+<div x-test-tpl-21035>
+  <mat-form-field appearance="outline" x-test-hook-21036>
+    <mat-label x-test-hook-21037>Edit or insert a date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="todoDialog.date" name="date" x-test-hook-21038>
+    <mat-datepicker-toggle matSuffix [for]="picker" x-test-hook-21039></mat-datepicker-toggle>
+    <mat-datepicker (selectedChanged)="onDate($event)" #picker x-test-hook-21040></mat-datepicker>
   </mat-form-field>
 </div>
-<p></p>
-    <button id="confirm-button" style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" mat-raised-button>Confirm</button>
-    <button id="delete-button" [hidden]="!this.showDelete" style="background-color:#372f7b;color: white;font-family: Raleway;margin-left: 210px;" (click)="cancelTodo()" mat-raised-button>Delete</button>
+<p x-test-tpl-21041></p>
+    <button id="confirm-button" style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" mat-raised-button x-test-tpl-21042>Confirm</button>
+    <button id="delete-button" [hidden]="!this.showDelete" style="background-color:#372f7b;color: white;font-family: Raleway;margin-left: 210px;" (click)="cancelTodo()" mat-raised-button x-test-tpl-21043>Delete</button>
 
 

@@ -7,7 +7,7 @@ import unittest, time, re
 
 class FilterAllLabels(unittest.TestCase):
     def setUp(self):
-        
+
         chrome_options = Options()
         chrome_options.add_argument('headless')
         chrome_options.add_argument('disable-gpu')
@@ -20,38 +20,29 @@ class FilterAllLabels(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_filter_all_labels(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21026]//*[@x-test-hook-21031]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21026]//*[@x-test-hook-21031]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21026]//*[@x-test-hook-21031]").send_keys("accountdiaccesso@gmail.com")
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21026]//*[@x-test-hook-21035]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21026]//*[@x-test-hook-21035]").send_keys("Accesso.1234")
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-21026]//*[@x-test-hook-21038]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-20980]//*[@x-test-hook-20982]").click()
-        driver.find_element_by_xpath("//mat-list-option/div").click()
-        driver.find_element_by_xpath("//mat-list-option[2]/div").click()
-        driver.find_element_by_xpath("//mat-list-option[3]/div").click()
-        driver.find_element_by_xpath("//mat-list-option[4]/div").click()
-        driver.find_element_by_xpath("//mat-list-option[5]/div").click()
-        driver.find_element_by_xpath("//mat-list-option[6]/div").click()
-        driver.find_element_by_xpath("//mat-list-option[7]/div").click()
-        driver.find_element_by_xpath("//mat-list-option[8]/div").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20978]//*[@x-test-tpl-20980]//*[@x-test-hook-20982]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20967]//*[@x-test-tpl-20969]//*[@x-test-hook-20977]").click()
-    
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21049]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21049]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21049]").send_keys("accountdiaccesso@gmail.com")
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21053]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21053]").send_keys("Accesso.1234")
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21056]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-20996]//*[@x-test-hook-21001]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21067]//*[@x-test-tpl-20983]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20987]//*[@x-test-hook-20993]").click()
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -62,7 +53,7 @@ class FilterAllLabels(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)

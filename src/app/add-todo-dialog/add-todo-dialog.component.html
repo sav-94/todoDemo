@@ -1,33 +1,33 @@
-  <div>
-    <mat-form-field class="longDescription" >
-      <mat-label>Title</mat-label>
-      <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel" >
+  <div x-test-tpl-20967>
+    <mat-form-field class="longDescription"  x-test-hook-20968>
+      <mat-label x-test-hook-20969>Title</mat-label>
+      <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel"  x-test-hook-20970>
     </mat-form-field>
   </div>
 
 
-  <mat-form-field class="FieldDescription">
-    <mat-label>Description</mat-label>
-    <textarea matTextareaAutosize matAutosizeMinRows=2 matAutosizeMaxRows=5 matInput id="description"  [(ngModel)]="model.description" name="description" ></textarea>
+  <mat-form-field class="FieldDescription" x-test-tpl-20971>
+    <mat-label x-test-hook-20972>Description</mat-label>
+    <textarea matTextareaAutosize matAutosizeMinRows=2 matAutosizeMaxRows=5 matInput id="description"  [(ngModel)]="model.description" name="description"  x-test-hook-20973></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="longChip">
-    <mat-label>Select a Label</mat-label>
-    <mat-select [(ngModel)]="selectedValue" name ="label">
-      <mat-option *ngFor="let value of this.labels" [value]="value.name" id="value.name">
+  <mat-form-field appearance="fill" class="longChip" x-test-tpl-20974>
+    <mat-label x-test-hook-20975>Select a Label</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name ="label" x-test-hook-20976>
+      <mat-option *ngFor="let value of this.labels" [value]="value.name" id="value.name" x-test-hook-20977>
         {{value.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
 
-  <mat-form-field class= "longDescription">
-    <mat-label>Select a day</mat-label>
-    <input id="mat-Add_todo-Date-input" matInput [matDatepicker]="picker" [(ngModel)]="model.date" name="date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker (selectedChanged)="onDate($event)" #picker></mat-datepicker>
+  <mat-form-field class= "longDescription" x-test-tpl-20978>
+    <mat-label x-test-hook-20979>Select a day</mat-label>
+    <input id="mat-Add_todo-Date-input" matInput [matDatepicker]="picker" [(ngModel)]="model.date" name="date" x-test-hook-20980>
+    <mat-datepicker-toggle matSuffix [for]="picker" x-test-hook-20981></mat-datepicker-toggle>
+    <mat-datepicker (selectedChanged)="onDate($event)" #picker x-test-hook-20982></mat-datepicker>
   </mat-form-field>
-    <button id="Add_todo_button" style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="onSubmit()" mat-raised-button [mat-dialog-close]="true">Add Todo</button>
-    <button style="background-color:#32751f;color: white;font-family: Raleway;margin-left: 210px;"  mat-raised-button mat-dialog-close>Close </button>
+    <button id="Add_todo_button" style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="onSubmit()" mat-raised-button [mat-dialog-close]="true" x-test-tpl-20983>Add Todo</button>
+    <button style="background-color:#32751f;color: white;font-family: Raleway;margin-left: 210px;"  mat-raised-button mat-dialog-close x-test-tpl-20984>Close </button>
 
 

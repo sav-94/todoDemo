@@ -19,27 +19,28 @@ class SignupUncomplete(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_signup_uncomplete(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
-        driver.find_element_by_xpath("//form/div/button[2]/span").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21066]//*[@x-test-tpl-21002]//*[@x-test-hook-21005]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21066]//*[@x-test-tpl-21002]//*[@x-test-hook-21005]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-21057]//*[@x-test-hook-21066]//*[@x-test-tpl-21002]//*[@x-test-hook-21005]").send_keys("provadisignup@gmail.com")
-        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-signup-dialog/div[2]/div/button/span").click()
-        driver.find_element_by_xpath("//body/div/div").click()
-    
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21049]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21049]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21049]").send_keys("provadisignup@gmail.com")
+        driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21044]//*[@x-test-hook-21056]").click()
+
+
+
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -50,7 +51,7 @@ class SignupUncomplete(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)

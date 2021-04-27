@@ -1,21 +1,21 @@
-  <form style="background-color:#372f7b;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;">
-    <h3 style="color: white; font-family: Raleway;">  Welcome to TodoApp</h3>
-    <h5 style="color: yellow; font-family: Raleway;"> Enter your credential to login or sign up</h5>
-    <mat-form-field  appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput  [(ngModel)]="email" placeholder=" Enter email" [ngModelOptions]="{standalone: true}">
+  <form style="background-color:#372f7b;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" x-test-tpl-21044>
+    <h3 style="color: white; font-family: Raleway;" x-test-hook-21045>  Welcome to TodoApp</h3>
+    <h5 style="color: yellow; font-family: Raleway;" x-test-hook-21046> Enter your credential to login or sign up</h5>
+    <mat-form-field  appearance="outline" x-test-hook-21047>
+      <mat-label x-test-hook-21048>Email</mat-label>
+      <input matInput  [(ngModel)]="email" placeholder=" Enter email" [ngModelOptions]="{standalone: true}" x-test-hook-21049>
     </mat-form-field>
-    <p></p>
-    <mat-form-field  appearance="outline">
-      <mat-label>Password</mat-label>
-      <input matInput  type="password"   [(ngModel)]="password" placeholder=" Enter password" [ngModelOptions]="{standalone: true}">
+    <p x-test-hook-21050></p>
+    <mat-form-field  appearance="outline" x-test-hook-21051>
+      <mat-label x-test-hook-21052>Password</mat-label>
+      <input matInput  type="password"   [(ngModel)]="password" placeholder=" Enter password" [ngModelOptions]="{standalone: true}" x-test-hook-21053>
     </mat-form-field>
-  <p></p>
-    <div>
-      <button class ="buttonlogin" style="color:  #372f7b;font-family: Raleway; font-size: larger;" (click)="login()" [disabled]="!email || !password" mat-raised-button>
+  <p x-test-hook-21054></p>
+    <div x-test-hook-21055>
+      <button class ="buttonlogin" style="color:  #372f7b;font-family: Raleway; font-size: larger;" (click)="login()" [disabled]="!email || !password" mat-raised-button x-test-hook-21056>
         login
       </button>
-      <button mat-raised-button style="left: 30%;border-color: #372f7b; color: #372f7b;font-family: Raleway;font-size: larger;" (click)="openDialog()">Signup</button>
+      <button mat-raised-button style="left: 30%;border-color: #372f7b; color: #372f7b;font-family: Raleway;font-size: larger;" (click)="openDialog()" x-test-hook-21057>Signup</button>
     </div>
 
   </form>

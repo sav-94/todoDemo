@@ -1,14 +1,14 @@
-<mat-toolbar>
-  <mat-toolbar-row style="background-color:#372f7b; font-family:Raleway;">
-    <span style="color:  white; font-size: 100%; ">TodoApp </span>
-    <span class="example-spacer"></span>
-    <div>
-      <a> </a>
-      <button id="log-out-button" mat-button  *ngIf="this.userId" style="color: white;font-size: 85%;font-family:Raleway;"(click)="doLogout()">log out</button>
+<mat-toolbar x-test-tpl-20987>
+  <mat-toolbar-row style="background-color:#372f7b; font-family:Raleway;" x-test-hook-20988>
+    <span style="color:  white; font-size: 100%; " x-test-hook-20989>TodoApp </span>
+    <span class="example-spacer" x-test-hook-20990></span>
+    <div x-test-hook-20991>
+      <a x-test-hook-20992> </a>
+      <button id="log-out-button" mat-button  *ngIf="this.userId" style="color: white;font-size: 85%;font-family:Raleway;"(click)="doLogout()" x-test-hook-20993>log out</button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div>
-<router-outlet></router-outlet>
+<div x-test-tpl-20994>
+<router-outlet x-test-hook-20995></router-outlet>
 </div>

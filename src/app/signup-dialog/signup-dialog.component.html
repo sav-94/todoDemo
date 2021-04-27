@@ -1,17 +1,17 @@
-<p>Signup with email and password</p>
-<div>
-  <mat-form-field  appearance="outline">
-    <mat-label>Email</mat-label>
-    <input matInput  [(ngModel)]="email" placeholder="Insert a valid email" >
+<p x-test-tpl-21016>Signup with email and password</p>
+<div x-test-tpl-21017>
+  <mat-form-field  appearance="outline" x-test-hook-21018>
+    <mat-label x-test-hook-21019>Email</mat-label>
+    <input matInput  [(ngModel)]="email" placeholder="Insert a valid email"  x-test-hook-21020>
   </mat-form-field>
 </div>
-  <mat-form-field appearance="outline">
-    <mat-label>Password</mat-label>
-    <input matInput type="password" [(ngModel)]="password" placeholder="Insert a password">
+  <mat-form-field appearance="outline" x-test-tpl-21021>
+    <mat-label x-test-hook-21022>Password</mat-label>
+    <input matInput type="password" [(ngModel)]="password" placeholder="Insert a password" x-test-hook-21023>
   </mat-form-field>
-<div>
-  <div>
-    <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" [disabled]="!email || !password" mat-raised-button mat-dialog-close>Sign up</button>
-    <button id="closeSignup" style="background-color:#32751f;color: white;font-family: Raleway;margin-left: 210px;"  mat-raised-button mat-dialog-close>Close </button>
+<div x-test-tpl-21024>
+  <div x-test-hook-21025>
+    <button style="background-color:#372f7b;color: white;font-family: Raleway;" (click)="closeDialog()" [disabled]="!email || !password" mat-raised-button mat-dialog-close x-test-hook-21026>Sign up</button>
+    <button id="closeSignup" style="background-color:#32751f;color: white;font-family: Raleway;margin-left: 210px;"  mat-raised-button mat-dialog-close x-test-hook-21027>Close </button>
   </div>
 </div>
