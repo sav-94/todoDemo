@@ -1,16 +1,21 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
 class InsertDescription(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        chrome_options = Options()
+        chrome_options.add_argument('headless')
+        chrome_options.add_argument('disable-gpu')
+        self.driver = webdriver.Chrome(
+            executable_path='..\\chromedriver.exe',
+            chrome_options=chrome_options)
         self.driver.implicitly_wait(30)
+        self.driver.set_window_position(0, 0)
+        self.driver.set_window_size(1920, 1080)
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True

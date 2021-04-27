@@ -26,7 +26,7 @@ class AbortInsert(unittest.TestCase):
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").send_keys("Dentista")
-        driver.find_element_by_xpath("//div[3]").click()
+        
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20935]").send_keys("Venerdi ore 18")

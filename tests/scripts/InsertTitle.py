@@ -23,7 +23,7 @@ class InsertTitle(unittest.TestCase):
     def test_insert_title(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
-        driver.find_element_by_xpath("//div[3]").click()
+        #driver.find_element_by_xpath("//div[3]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-20938]//*[@x-test-hook-20948]//*[@x-test-tpl-20908]//*[@x-test-tpl-20929]//*[@x-test-hook-20932]").send_keys("prova")
         driver.find_element_by_xpath("//form/div/button/span").click()
