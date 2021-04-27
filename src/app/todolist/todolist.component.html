@@ -1,23 +1,23 @@
 
-      <form style="background-color: white;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" (ngSubmit)="onSubmit()" #todolist="ngForm" >
-        <mat-form-field  appearance="outline">
-          <mat-label>Title</mat-label>
-          <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel" >
+      <form style="background-color: white;border:double; border-color:#372f7b;border-radius: 1.3%;border-width: 1px;" (ngSubmit)="onSubmit()" #todolist="ngForm"  x-test-tpl-20954>
+        <mat-form-field  appearance="outline" x-test-hook-20955>
+          <mat-label x-test-hook-20956>Title</mat-label>
+          <input matInput id="title" [(ngModel)]="model.title" name="title" #title="ngModel"  x-test-hook-20957>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Description</mat-label>
-          <input matInput id="description"  [(ngModel)]="model.description" name="description" >
+        <mat-form-field appearance="outline" x-test-hook-20958>
+          <mat-label x-test-hook-20959>Description</mat-label>
+          <input matInput id="description"  [(ngModel)]="model.description" name="description"  x-test-hook-20960>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Select a day</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="model.date" name="date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker (selectedChanged)="onDate($event)" #picker></mat-datepicker>
+        <mat-form-field appearance="outline" x-test-hook-20961>
+          <mat-label x-test-hook-20962>Select a day</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="model.date" name="date" x-test-hook-20963>
+          <mat-datepicker-toggle matSuffix [for]="picker" x-test-hook-20964></mat-datepicker-toggle>
+          <mat-datepicker (selectedChanged)="onDate($event)" #picker x-test-hook-20965></mat-datepicker>
         </mat-form-field>
-        <div>
-          <button style="background-color:#372f7b;color: white;font-family: Raleway;" mat-raised-button>Add Todo</button>
+        <div x-test-hook-20966>
+          <button style="background-color:#372f7b;color: white;font-family: Raleway;" mat-raised-button x-test-hook-20967>Add Todo</button>
         </div>
 
       </form>

@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class AbortEdit(unittest.TestCase):
+class EditAllFields(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -19,32 +19,45 @@ class AbortEdit(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
-    def test_abort_edit(self):
+
+    def test_edit_all_fields(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").send_keys("Dentista")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20960]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20960]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20960]").send_keys(u"Venerdì ore 18")
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").send_keys("4/5/2021")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20963]").send_keys("04/05/2021")
         driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20925]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20939]//*[@x-test-hook-20942]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20939]//*[@x-test-hook-20942]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20939]//*[@x-test-hook-20942]").send_keys("andare al mare")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20943]//*[@x-test-hook-20945]").click()
+        driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/mat-form-field/div/div").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20943]//*[@x-test-hook-20945]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20943]//*[@x-test-hook-20945]").send_keys(u"ore 18")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20946]//*[@x-test-hook-20949]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20946]//*[@x-test-hook-20949]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20977]//*[@x-test-tpl-20946]//*[@x-test-hook-20949]").send_keys("6/5/2021")
         driver.find_element_by_xpath("//mat-dialog-container[@id='mat-dialog-0']/app-todo-dialog/div[3]/button/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20968]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20927]").click()
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -55,7 +68,7 @@ class AbortEdit(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
