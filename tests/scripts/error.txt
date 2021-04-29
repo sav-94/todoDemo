@@ -1,0 +1,88 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.018s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.046s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.841s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.813s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.851s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.866s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.645s
+
+OK
+E
+======================================================================
+ERROR: test_edit_all_fields (__main__.InsertAllFields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditAllFields.py", line 26, in test_insert_all_fields
+    driver.find_element_by_xpath("//*[@x-test-tpl-20948]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@x-test-tpl-20948]//*[@x-test-hook-20978]//*[@x-test-tpl-20908]//*[@x-test-tpl-20954]//*[@x-test-hook-20957]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 34.453s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.831s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.137s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.124s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.089s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.709s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.835s
+
+OK
