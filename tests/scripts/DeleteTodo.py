@@ -19,29 +19,29 @@ class DeleteTodo(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_delete_todo(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").send_keys("provaeliminazione")
+        driver.find_element_by_xpath("//*[@x-test-tpl-20941]//*[@x-test-hook-20951]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20936]").send_keys("provaeliminazione")
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20939]").clear()
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20939]").send_keys("prova")
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20933]//*[@x-test-hook-20941]").click()
         driver.find_element_by_xpath("//button[2]/span").click()
         driver.find_element_by_xpath("//*[@x-test-tpl-20942]//*[@x-test-hook-20952]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20931]").click()
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -52,7 +52,7 @@ class DeleteTodo(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
