@@ -1,0 +1,191 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.395s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.429s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.230s
+
+OK
+E
+======================================================================
+ERROR: test_checked_todo (__main__.CheckedTodo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "CheckedTodo.py", line 41, in test_checked_todo
+    driver.find_element_by_xpath("//mat-list-item[@id='value.title']/div/div[2]/h4").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 9.027s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.974s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.002s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.511s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.183s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.825s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.468s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.484s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 10.021s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.914s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 10.662s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.568s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.184s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.353s
+
+OK
+E
+======================================================================
+ERROR: test_insert_date (__main__.InsertDate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "InsertDate.py", line 40, in test_insert_date
+    driver.find_element_by_xpath("//mat-list-item[@id='value.title']/div/div[2]/h4").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 9.470s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.319s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.858s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.046s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 11.266s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 11.459s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.457s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.911s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.880s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.955s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.048s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.951s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.411s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.850s
+
+OK

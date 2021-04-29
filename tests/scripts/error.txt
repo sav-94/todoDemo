@@ -1,0 +1,201 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.552s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.176s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.783s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.910s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.017s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.782s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.144s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.018s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.076s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.457s
+
+OK
+E
+======================================================================
+ERROR: test_edit_date (__main__.EditDate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditDate.py", line 48, in test_edit_date
+    driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21006]//*[@x-test-hook-21014]").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <h4 matline="" x-test-hook-21014="" class="mat-line" style="font-family: Raleway; color: #372f7b;">...</h4> is not clickable at point (941, 167). Other element would receive the click: <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 10.099s
+
+FAILED (errors=1)
+E
+======================================================================
+ERROR: test_edit_date_from_date (__main__.EditDateFromDate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditDateFromDate.py", line 48, in test_edit_date_from_date
+    driver.find_element_by_xpath("//*[@x-test-tpl-21058]//*[@x-test-hook-21068]//*[@x-test-tpl-20985]//*[@x-test-tpl-20994]//*[@x-test-tpl-21006]//*[@x-test-hook-21014]").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <h4 matline="" x-test-hook-21014="" class="mat-line" style="font-family: Raleway; color: #372f7b;">...</h4> is not clickable at point (941, 167). Other element would receive the click: <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 10.053s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.271s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.591s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.401s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.335s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.432s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.448s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.299s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.983s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.648s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.060s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.173s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 9.239s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.915s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.679s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.979s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.952s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.778s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.921s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.962s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.216s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.124s
+
+OK
