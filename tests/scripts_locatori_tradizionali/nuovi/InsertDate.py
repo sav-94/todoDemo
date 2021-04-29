@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class InsertDescription(unittest.TestCase):
+class InsertDate(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')

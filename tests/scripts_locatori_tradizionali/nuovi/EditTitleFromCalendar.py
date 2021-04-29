@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class DeleteFromB(unittest.TestCase):
+class EditTitleFromCalendar(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         chrome_options.add_argument('headless')
@@ -20,7 +20,7 @@ class DeleteFromB(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
-    def test_delete_from_b(self):
+    def test_edit_title_from_calendar(self):
         driver = self.driver
         driver.get("http://localhost:4200/todo-login")
         driver.find_element_by_id("mat-input-0").click()
