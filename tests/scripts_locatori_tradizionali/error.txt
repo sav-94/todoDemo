@@ -1,0 +1,230 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.443s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.784s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.813s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.549s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.620s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.216s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.099s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.975s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.863s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.940s
+
+OK
+E
+======================================================================
+ERROR: test_edit_date (__main__.EditDate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditDate.py", line 41, in test_edit_date
+    driver.find_element_by_id("title").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="title"]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 36.349s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.379s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.334s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.954s
+
+OK
+E
+======================================================================
+ERROR: test_edit_only_title (__main__.EditOnlyTitle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditOnlyTitle.py", line 41, in test_edit_only_title
+    driver.find_element_by_xpath("//h4").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//h4"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 36.378s
+
+FAILED (errors=1)
+E
+======================================================================
+ERROR: test_edit_title_from_calendar (__main__.EditTitleFromCalendar)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditTitleFromCalendar.py", line 39, in test_edit_title_from_calendar
+    driver.find_element_by_id("title").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="title"]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 36.241s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.697s
+
+OK
+E
+======================================================================
+ERROR: test_insert_date (__main__.InsertDate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "InsertDate.py", line 41, in test_insert_date
+    driver.find_element_by_id("title").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="title"]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 37.712s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.355s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.695s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.864s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.083s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.996s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.966s
+
+OK
+E
+======================================================================
+ERROR: test_unchecked_todo (__main__.UncheckedTodo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UncheckedTodo.py", line 37, in test_unchecked_todo
+    driver.find_element_by_id("title").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="title"]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 35.072s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.756s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.826s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.194s
+
+OK
