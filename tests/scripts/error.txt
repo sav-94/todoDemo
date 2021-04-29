@@ -1,0 +1,86 @@
+E
+======================================================================
+ERROR: test_abort_delete (__main__.AbortDelete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "AbortDelete.py", line 27, in test_abort_delete
+    driver.find_element_by_xpath("//*[@x-test-tpl-21958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").clear()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@x-test-tpl-21958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 34.472s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.015s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.776s
+
+OK
+E
+======================================================================
+ERROR: test_delete_todo (__main__.DeleteTodo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "DeleteTodo.py", line 26, in test_delete_todo
+    driver.find_element_by_xpath("//*[@x-test-tpl-20952]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@x-test-tpl-20952]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 34.387s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.975s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.861s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.181s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.920s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.759s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.818s
+
+OK

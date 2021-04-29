@@ -24,16 +24,11 @@ class EditDescription(unittest.TestCase):
     def test_edit_description(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20955]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20955]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20955]").send_keys(u"Venerdì ore 18")
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20957]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").click()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").clear()
+        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20949]//*[@x-test-hook-20952]").send_keys("Palestra")
+        driver.find_element_by_xpath("//form/div/button/span").click()
         driver.find_element_by_xpath("//button[2]/span").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20931]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20927]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20925]").click()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20927]").clear()
-        driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20927]").send_keys(u"Martedì ore 18")
         driver.find_element_by_xpath("//*[@x-test-tpl-20958]//*[@x-test-hook-20968]//*[@x-test-tpl-20908]//*[@x-test-tpl-20918]//*[@x-test-hook-20933]").click()
 
     def is_element_present(self, how, what):

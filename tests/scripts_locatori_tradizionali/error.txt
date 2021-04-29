@@ -1,0 +1,86 @@
+E
+======================================================================
+ERROR: test_abort_delete (__main__.AbortDelete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "AbortDelete.py", line 34, in test_abort_delete
+    driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-3-0']/div/mat-list/mat-list-item/div/button[3]/span/span").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//mat-tab-body[@id='mat-tab-content-3-0']/div/mat-list/mat-list-item/div/button[3]/span/span"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 34.897s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.884s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.753s
+
+OK
+E
+======================================================================
+ERROR: test_delete_todo (__main__.DeleteTodo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "DeleteTodo.py", line 34, in test_delete_todo
+    driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-7-0']/div/mat-list/mat-list-item/div/button[2]/span/mat-icon").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//mat-tab-body[@id='mat-tab-content-7-0']/div/mat-list/mat-list-item/div/button[2]/span/mat-icon"}
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 34.946s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.387s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.126s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.975s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.871s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.734s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.710s
+
+OK
