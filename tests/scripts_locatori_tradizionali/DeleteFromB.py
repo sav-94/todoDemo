@@ -19,10 +19,11 @@ class DeleteFromB(unittest.TestCase):
         self.base_url = "https://www.google.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_delete_from_b(self):
         driver = self.driver
         driver.get("http://localhost:4200/todolist")
+        driver.find_element_by_xpath("//div[3]//").click()
         driver.find_element_by_id("title").click()
         driver.find_element_by_id("title").clear()
         driver.find_element_by_id("title").send_keys("Dentista")
@@ -31,17 +32,17 @@ class DeleteFromB(unittest.TestCase):
         driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-0']/div/div/div/mat-list/mat-list-item/div/button[3]/span/span").click()
         driver.find_element_by_xpath("//div[@id='mat-tab-label-0-1']/div").click()
         driver.find_element_by_xpath("//mat-tab-body[@id='mat-tab-content-0-1']/div/mat-list/mat-list-item/div/button/span/mat-icon").click()
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-    
+
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -52,7 +53,7 @@ class DeleteFromB(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)

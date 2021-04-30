@@ -1,0 +1,136 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.481s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.275s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.348s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.041s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.039s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.028s
+
+OK
+E
+======================================================================
+ERROR: test_delete_from_b (__main__.DeleteFromB)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "DeleteFromB.py", line 26, in test_delete_from_b
+    driver.find_element_by_xpath("//div[3]//").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression //div[3]// because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//div[3]//' is not a valid XPath expression.
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 4.591s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 6.539s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.847s
+
+OK
+E
+======================================================================
+ERROR: test_edit_description (__main__.EditDescription)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "EditDescription.py", line 26, in test_edit_description
+    driver.find_element_by_xpath("//div[3]/").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression //div[3]/ because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//div[3]/' is not a valid XPath expression.
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 4.509s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.394s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.251s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.855s
+
+OK
+E
+======================================================================
+ERROR: test_insert_only_date (__main__.InsertOnlyDate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "InsertOnlyDate.py", line 26, in test_insert_only_date
+    driver.find_element_by_xpath("//div[3]").click()
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+ElementClickInterceptedException: Message: element click intercepted: Element <div class="mat-form-field-outline-end ng-tns-c64-0"></div> is not clickable at point (912, 177). Other element would receive the click: <input _ngcontent-mxj-c107="" matinput="" id="title" name="title" class="mat-input-element mat-form-field-autofill-control ng-tns-c64-0 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored" ng-reflect-id="title" ng-reflect-name="title" ng-reflect-model="" aria-invalid="false" aria-required="false">
+  (Session info: headless chrome=90.0.4430.85)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 5.499s
+
+FAILED (errors=1)
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.909s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 4.945s
+
+OK
